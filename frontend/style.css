@@ -1,0 +1,904 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f9f5ff, #ffffff);
+  color: #333;
+}
+
+/* 🌐 Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #5a189a; /* 💜 purple navbar */
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 🔹 Logo */
+.logo h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo h1:hover {
+  transform: scale(1.2);
+  color: #ffdeff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 🔹 Navbar Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  display: inline-block; /* needed for transform */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  transform: scale(1.2);
+  color: #ffdeff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid #ffdeff;
+  padding-bottom: 3px;
+}
+
+/* 🔽 Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #7b2cbf;
+  top: 25px;
+  left: 0;
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content li {
+  margin: 5px 0;
+}
+
+.dropdown-content li a {
+  color: white;
+  transition: color 0.3s;
+}
+
+.dropdown-content li a:hover {
+  color: #ffdeff;
+}
+
+/* 🔘 Auth Buttons */
+.auth-btns .btn {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-btns .signin {
+  background: white;
+  color: #5a189a;
+  border: none;
+}
+
+.auth-btns .signup {
+  background: #9d4edd;
+  color: white;
+  border: 2px solid white;
+}
+
+.auth-btns .signin:hover {
+  background: #f3e8ff;
+}
+
+.auth-btns .signup:hover {
+  background: #7b2cbf;
+  transform: scale(1.05);
+}
+
+/* 👤 Profile Icon */
+.profile-icon {
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* 📱 Mobile Navbar */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #5a189a;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .auth-btns {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* 🧭 Sidebar */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #7b2cbf;
+  color: white;
+  transition: left 0.3s ease;
+  z-index: 200;
+  padding-top: 60px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.close-sidebar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-content li {
+  padding: 12px 20px;
+}
+
+.sidebar-content li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-content li a:hover {
+  color: #ffdeff;
+}
+
+/* 🏝️ Landing Section */
+.landing {
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('images (1).jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo-img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.landing-content h2 {
+  color: #5a189a;
+  font-size: 2rem;
+}
+
+.landing-content p {
+  color: #6a1fbf;
+  font-size: 1.1rem;
+  margin: 10px 0 30px;
+}
+
+/* 🚀 Get Started Button */
+.get-started {
+  background: #9d4edd;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.get-started:hover {
+  background: #7b2cbf;
+  transform: scale(1.05);
+}
+
+
+
+
+/*  SIGNUP PAGE DESIGN */
+.signup-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #9d4edd;
+}
+
+.signup-container {
+  background:white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 320px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.signup-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+.signup-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/*  Different buttons */
+
+
+.email-btn {
+  background: white;
+  color: #5a189a;
+}
+
+.google-btn {
+  background: #db4437;
+  color: white;
+}
+
+.phone-btn {
+  background: #5a189a;
+  color: white;
+}
+
+.signup-container button:hover {
+  transform: scale(1.05);
+}
+
+.divider {
+  margin: 10px 0;
+  color: #f3e8ff;
+}
+
+
+
+
+
+
+/* CREATE TRIP */
+.create-trip {
+  padding: 80px 0;
+  text-align: center;
+  background: #9d4edd
+}
+
+.create-trip h2 {
+  color: #5a189a;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 6px rgba(90, 24, 154, 0.2);
+}
+
+/* 🌸 Centered card-style form */
+.trip-form {
+  width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(157, 78, 221, 0.2);
+}
+
+/* 🏷 Labels */
+.trip-form label {
+  font-weight: 600;
+  color: #5a189a;
+  margin-top: 8px;
+}
+
+/* 📝 Inputs, textarea, dropdowns */
+.trip-form input,
+.trip-form textarea,
+.trip-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #faf7ff;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.trip-form input:focus,
+.trip-form textarea:focus,
+.trip-form select:focus {
+  outline: none;
+  border-color: #9d4edd;
+  box-shadow: 0 0 8px rgba(157, 78, 221, 0.3);
+}
+
+/* 🎯 Button styling */
+.trip-form button {
+  background: #5a189a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.trip-form button:hover {
+  background: #9d4edd;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(90, 24, 154, 0.3);
+}
+
+
+
+
+
+/* MY TRIPS */
+.my-trips {
+  background: linear-gradient(180deg, #f9f5ff 0%, #ffffff 100%);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.trip-header h2 {
+  color: #5a189a;
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.trip-header p {
+  color: #6a4c93;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.trip-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(90, 24, 154, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(90, 24, 154, 0.3);
+}
+
+.trip-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.trip-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.trip-content h3 {
+  color: #5a189a;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.trip-content p {
+  color: #6a4c93;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.details-btn {
+  background: #5a189a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.details-btn:hover {
+  background: #9d4edd;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+/* EXPLORE DESTINATIONS */
+.explore {
+  text-align: center;
+  padding: 60px ;
+  background: linear-gradient(180deg, #f9f5ff 0%, #f3e8ff 100%);
+}
+
+.explore h2 {
+  color: #5a189a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.explore p {
+  color: #6a1b9a;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0 40px;
+}
+
+.destination-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(157, 78, 221, 0.15);
+  transition: 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 25px rgba(90, 24, 154, 0.3);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.destination-info {
+  padding: 15px;
+}
+
+.destination-info h3 {
+  color: #5a189a;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.destination-info p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+/* COMMUNITY */
+.community {
+  padding: 5px 40px;
+  text-align: center;
+  background: linear-gradient(180deg, #f3e8ff 0%, #f9f5ff 100%);
+  margin-top: 15px;
+}
+
+.community h2 {
+  font-size: 2rem;
+  color: #5a189a;
+  margin-bottom: 10px;
+}
+
+.community p {
+  color: #6a1b9a;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.community h2:hover{
+  transform: scale(1.36);
+}
+
+.community p:hover{
+  transform: scale(1.36);
+}
+
+.community-section {
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.community-section h3 {
+  color: #5a189a;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+
+/* 🌍 Travel Stories */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.story-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.15);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.story-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(90, 24, 154, 0.3);
+}
+
+.story-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.story-content {
+  padding: 15px;
+}
+
+.story-content h4 {
+  color: #5a189a;
+  margin-bottom: 5px;
+}
+
+.read-btn {
+  background: #5a189a;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.read-btn:hover {
+  background: #9d4edd;
+}
+
+/* 💬 Discussions */
+.discussion-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.discussion {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.15);
+  text-align: left;
+}
+
+.join-btn {
+  background: #5a189a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* 🎉 Events */
+.event-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.event-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.15);
+  text-align: left;
+}
+
+.event-btn {
+  background: #5a189a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.event-btn:hover {
+  background: #9d4edd;
+}
+
+/*  Join CTA */
+.join-community {
+  margin-top: 0px;
+  background: #9d4edd;
+  color: white;
+  padding: 40px 20px;
+  border-radius: 0px;
+}
+
+.join-community h3 {
+  margin-bottom: 10px;
+}
+
+.join-now-btn {
+  background: white;
+  color: #5a189a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.join-now-btn:hover {
+  background: #f3e8ff;
+}
+
+
+
+
+
+
+
+/* Nearby Essential */
+.nearby {
+  padding: 70px 40px;
+  text-align: center;
+  background: linear-gradient(180deg, #f9f5ff 0%, #f3e8ff 100%);
+}
+
+.nearby h2 {
+  color: #5a189a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.nearby p {
+  color: #6a1b9a;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.essentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0 40px;
+}
+
+.essential-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.15);
+  transition: 0.3s ease;
+}
+
+.essential-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(90, 24, 154, 0.3);
+}
+
+.essential-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.essential-info {
+  padding: 15px;
+}
+
+.essential-info h3 {
+  color: #5a189a;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.essential-info p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.view-btn {
+  background: #5a189a;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: #9d4edd;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+/* 🌙 Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hidden initially */
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 15px rgba(90, 24, 154, 0.2);
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  right: 0; /* When active, visible */
+}
+
+.close-sidebar {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #5a189a;
+  cursor: pointer;
+  float: right;
+}
+
+.sidebar-content {
+  margin-top: 40px;
+}
+
+.sidebar-content h3 {
+  color: #5a189a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.sidebar-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-content ul li {
+  margin: 15px 0;
+}
+
+.sidebar-content ul li a {
+  color: #5a189a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar-content ul li a:hover {
+  color: #9d4edd;
+  text-decoration: underline;
+}
